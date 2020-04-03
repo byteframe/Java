@@ -1,0 +1,133 @@
+playmat readme
+
+Description:
+
+  playmat is a networked card game engine. It uses a database for the storage of
+  user data, while a client/server exchange allows users to play games, or edit
+  decks. This is multi-tiered software project. The client consists of a Java
+  application (or applet), and the server is a separate Java program with a 
+  connection to the database. Additionally, a companion website tailored to the
+  Wind and Water card game series from zigraphix.com is included. Written in
+  php it shows off the editor and game applets, game server browsing, as well as
+  user registration and administration functionality.
+
+Dependencies:
+
+  playmat uses the Apache Ant build system. Ant is written in Java and can be
+  installed easily. Many modern Java IDEs come with Ant included.
+
+  - Apache ANT (http://ant.apache.org/manual/index.html)
+
+  To compile and run the client and server you will need a Java SE 1.6
+  compliant development kit.
+
+  - OpenJDK (http://openjdk.java.net)
+  - Sun Java SE (http://java.sun.com/javase/downloads)
+
+  The server assumes a connection to a database, therefore you will need to
+  install the MySQL Server Daemon.
+
+  - MySQL 5.1 (http://dev.mysql.com/downloads/mysql/5.1.html)
+
+  To use the included Wind and Water website you will need to install PHP and
+  the Apache HTTP Server.
+
+  - PHP (http://www.php.net/downloads.php)
+  - Apache HTTP Server (http://httpd.apache.org/)
+
+Installation:
+
+  1. Build Client/Server
+
+    Run `ant` from the playmat source directory to compile the code into the
+    "build" directory.
+
+    Assemble jar files for the client and server by running `ant dist`.
+
+  2. Initialize Database
+
+    Modify the two GRANT statements in the "1-WindAndWaterBase.sql" file to
+    use a password other than the default.
+
+    Start the mysql client console, and connect to your database, then run:
+    `source <location of playmat source directory>/sql/1-WindAndWaterBase.sql;`.
+    Repeat this process for the remaining five files in the numbered sequence.
+
+    If the database is going to be accessed remotely from either the website or
+    any of the servers, you must also execute the following two sql commands:
+    `GRANT ALL ON playmat.* TO 'playmat'@'host' IDENTIFIED BY 'pass';`
+    `GRANT SELECT ON mysql.proc TO 'playmat'@'host' IDENTIFIED BY 'pass';`
+    (where 'host' is the hostname, and 'pass' is the desired password) for
+    each machine that will connect to the database.
+
+  3. Assemble Web Interface
+
+    Copy the "misc/playmatweb" directory into an appropriate place in the Apache
+    document root. Be sure that the webserver can write to this directory.
+
+    Modify the "config.php" file. You can change the database information, and
+    the path to the java program, as well as the server ports: by default, the
+    editor server runs on port 4417, and the game server ports (which are
+    specified as a range) run from port 4418 to port 4425. 
+
+    Finally, copy the playmat-*.jar, and playmatd-*.jar files to the playmatweb
+    directory. If older jar files are already present, remove them.
+
+Usage:
+
+  The web site provides a number of user-friendly interfaces to register
+  usernames and signin, to start playmat servers, and to join and play games.
+  The administration functionality is also quite useful, but requires that the
+  logged-in user have administration privileges before they can use them. The 
+  "admin" account, with password "admin", is created by default when
+  initializing the database, so you can log in with that account and then grant 
+  subsequent users with administration privileges.
+
+  To start a server manually you must specify the configuration to playmatd on
+  the command line.
+
+  -dburl  : jdbc url location, such as "localhost:3306/playmat"
+  -dbuser : database username "defaults to playmat"
+  -dbpass : database password
+  -editor : use editor server instead of default game server
+  -host   : ip or hostname for the server to bind to, defaults to all
+  -imgdir : card image directory, defaults to relative "cardimages/"
+  -name   : name of the game session, ignored for editor mode
+  -port   : port to bind to, if editor the default is 4417, otherwise it is 4416
+
+  Running the playmat program with no arguments will start an unconnected 
+  game client. You can then use the client menu to connect to a server, but if
+  you want to automatically connect to a server on start up, you can specify
+  the following command line arguments.
+
+  -editor : use editor client, instead of default game client
+  -host   : hostname or ip address of the server to connect to
+  -user   : username
+  -pass   : password
+  -port   : destination port, if editor the default is 4417, otherwise 4416
+
+Uninstall:
+
+  Stop all servers; you can do this by using the web admin, or by terminating
+  the running java processes.
+
+  Run the following two sql commands on the mysql console:
+  `DROP DATABASE playmat;`
+  `DELTE FROM mysql.user WHERE user = 'playmat';`
+
+  Remove the 'playmatweb' directory from your Apache document root.
+
+Errata:
+
+  This is an early release. playmat is intended to be a generic card game 
+  engine, but currently incorporates some WAW specifics such as the card data,
+  images, and database elements. However, carefully following the installation
+  instructions will show a worthy prototyope, as the web interface ties
+  everything well.
+
+  At this point in the development of the web interface, it is highly
+  recommended that you use a GNU+Linux machine. The website starts many java
+  processes to query servers, and Windows is much less efficient in regards to
+  process management. When using windows, playmatweb is prone to locking the
+  thread between the webserver and client -- usually if they try to navigate to
+  another page or refresh while the query is in process.

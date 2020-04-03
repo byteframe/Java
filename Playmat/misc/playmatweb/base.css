@@ -1,0 +1,176 @@
+/* thanks: matthewjamestaylor.com */
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+}
+a:visited {
+  color: #fff;
+}
+.aContent {
+  color: #06F;
+}
+.aContent:visited {
+  color: #06F;
+}
+applet {
+  margin: none;
+  padding: none;
+}
+body {
+  border: 0;
+  font-family: "Sans-Serif" sans-serif;
+  font-size: 8pt;
+  margin-top: 10px;
+  padding: 0;
+}
+.colmask {
+  margin: 0px auto 0px auto;
+  /*position: relative;  This fixes the IE7 overflow hidden bug 
+  clear: both;*/
+  width: 850px;
+  /*overflow: hidden;  This chops off any overhanging divs */
+}
+.col1,
+.col2,
+.col3 {
+  background: #777;
+  border: 2px outset #222;
+  padding: 6px;
+  /*position: relative;
+  overflow: hidden;*/
+}
+.col1 {
+  float: left;
+  height: 536px;
+  width: 737px;
+}
+.col2 {
+  float: right;
+  height: 414px;
+  width: 71px;
+}
+.col3 {
+  float: right;
+  margin-top: 10px;
+  height: 96px;
+  width: 71px;
+}
+.content {
+  background: #eeeeee;
+  border: 2px outset #eeeeee;
+  padding: 8px;
+}
+fieldset {
+  margin: 0px;
+}
+.icol1,
+.icol2,
+.icol3 {
+  border: 2px inset #666;
+}
+.icol1 {
+  background-image: url(site_image/col1bg.jpg);
+  height: 532px;
+  width: 733px;
+}
+.icol2 {
+  background-image: url(site_image/col2bg.jpg);
+  height: 410px;
+  width: 67px;
+}
+.icol3 {
+  background-image: url(site_image/col3bg.jpg);
+  font-weight: bold;
+  text-align: center;
+  height: 92px;
+  width: 67px;
+}
+img {
+  border: none;
+  margin-left: 5px;
+  display: block;
+}
+input {
+  font-size: 8pt;
+}
+.nav0,
+.nav1,
+.nav2,
+.nav3 {
+  display: block;
+  font-size: 8pt;
+  font-variant: small-caps;
+  margin-left: 5px;
+  margin-top: 20px;
+  width: 63px;
+}
+.nav0:hover,
+.nav1:hover,
+.nav2:hover,
+.nav3:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+.nav0 {
+  color: #fff;
+  background-image: url(site_image/nav00.png);
+  margin-top: 40px;
+  height: 60px;
+}
+.nav0:hover {
+  background-image: url(site_image/nav01.png);
+}
+.nav1 {
+  background-image: url(site_image/nav10.png);
+  height: 60px;
+}
+.nav1:hover {
+  background-image: url(site_image/nav11.png);
+}
+.nav2 {
+  background-image: url(site_image/nav20.png);
+  height: 80px;
+}
+.nav2:hover {
+  background-image: url(site_image/nav21.png);
+}
+.nav3 {
+  background-image: url(site_image/nav30.png);
+  height: 65px;
+}
+.nav3:hover {
+  background-image: url(site_image/nav31.png);
+}
+select {
+  font-family: "Sans-Serif" sans-serif;
+  font-size: 8pt;
+}
+p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+}
+.pCenter {
+  text-align: center;
+}
+.pLog {
+  border: 1px solid #888;
+  height: 380px;
+  overflow: auto;
+  width: 400px;
+}
+table {
+  border: 1px solid #000;
+}
+td {
+  border: 1px solid #888;
+  padding: 4px;
+}
+.tdMaxWidth {
+  width: 100%;
+}
+textarea {
+  font-size: 8pt;
+  font-family: "Sans-Serif" sans-serif;
+}

@@ -1,0 +1,7 @@
+module CorbaHelloApp {
+    interface CorbaHello {
+        string sayHello();
+	    oneway void shutdown();
+    };
+};
+    

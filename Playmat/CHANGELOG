@@ -1,0 +1,118 @@
+playmat changelog
+
+0.1.2 (July 21 2009)
+  - just send null as a keepalive
+  - disconnect a connection (pm_serverquery) that fails admin login for shutdown 
+  - write Client.getServerHost, and use the string when announcing disconnect
+  - use plain string over url for images, change imgurl to imgdir, adjust
+    playmatweb, and readme
+  - move splitpane divider up to hide other player game side when disconnected
+  - fix bug where clicking on empty game background after disconnecting spits
+    out null exceptions
+  - have gameserver send all images of cards in play to new joining players
+  - fix game server bug not properly removing client who didn't select a deck
+  - remove name property from gamestate (it's in playmatserver) have server send
+    name as string, and have game client update label
+  - fix bug related to card back image in editor client when server cant find it
+  - write new PlaymatServer class with shared code, make subclasses recieve a
+    client type indicator before adding the player/editor so that users
+    connecting to an editor server from a game client (pr vice versa) will
+    recieve an error and be disconnected
+  - adjust game cl/sv do remove the superflous "game" string for some requests
+  - remove private Server.bind() function and put that code in bind(port, host) 
+  - write new PlaymatClient class containing all shared code from editor/game
+  - stop connecting in DB constructor, null check connection for disconnect, and
+    log connections
+  - catch exceptions for port-in-use and bad jdbc url, spit of errors, and exit
+  - remove redundant cast in DeckListModel
+  - fix two warnings with arraylist creation for client cmdline parameters
+  - spit out a one line error, rather than a whole stacktrace on client timeout
+  - remove unused requestImage function from game client
+  - move socket and stream init code in the client from the runnable to the
+    connect function
+  - have ant not extract empty 'org' directory from mysql connector jar, and 
+    adjust xml style
+  - remove isconnected check for Client.disconnect and add two checks in playmat
+  - have editor client handle the image info string and store the intended image
+    list index, receive the bytes, and then stream them into a bufferedimage via
+    imageio
+  - remove -Dawt-headless=true when starting servers with playmatweb
+  - stop using ImageIcon to transfer image data from editor server to client,
+    and write function that sends a string with the image index, followed by the
+    raw bytes of the image file
+  - put for loop inside of try (rather than vice versa) in ImageSendRun.run and
+    remove the now unneeded break call if a client goes away during image send
+  - implement editor server sending and logging of user actions, and have client
+    print them to stdout
+  - remove isConnected check in Client.send
+  - remove superfluous calls to setChanged/notifyObservers in the connect
+    function of client subclasses
+
+0.1.1 (July 05 2009)
+  - catch socket closed exceptions in Client.read and be silent
+  - catch an arrayindex exception and print a warning that the image transfer
+    was interrupted if the client wants to disconnect before all images are sent
+  - relax output stream resetting on image transfer from every 4 images to 10
+  - print out an error when sending on a broken pipe
+  - catch socket closed exceptions on Server.send and Server.disconnect, and be
+    silent, as they indicate a client who disconnected at an opportune time, and
+    closing the socket attempts to contact the client again
+  - send first decks vector without needlessly resetting the output stream
+  - fix playmatweb navigation not disabling the links to the current page
+    on some php configurations
+  - inform admin of no registered users on admin instead of an empty list
+  - initialize the $games array before querying, and check for it's count rather
+    than use isset(); fixes subtle bug where verbose php configurations would
+    break startgame header call and admin not informing user of no game servers
+  - fix editor client not setting the card panel to the backimage when the user
+    selects a card whose image has not been sent yet
+  - improve deck selection in editor client
+  - add uninstall info to readme
+  - have playmatweb stop and spit out an error when the webserver cannot write
+    to the current directory on motd modification and server starting
+  - have playmatweb create the log directory if is not present, and remove the
+    reference to it in the readme
+  - inform user of a downed server when they try to use the editor in playmatweb
+  - modify regular expression for new/rename deck check in editor server to
+    allow spaces and numbers
+  - fix add card button sometimes not being disabled when it should be in editor
+  - initialize keep alive timer _after_ binding, thereby fix a bug where
+    the server would hang on a bind exception upon startup
+  - make keepalive timer active regardless of client count
+  - make _all_ database functions handle database reconnect
+  - clear image cache on client disconnect to fix memory leak
+  - flush previous image on change in CardPanel to fix client memory leak
+  - remove unnecessary reference to mysql connector/j in readme, and make
+    other adjustments
+
+0.1.0 (May 12 2009) (murky recollection of past development)
+  - wrote initial readme
+  - added imgurl command line parameter for server
+  - added -Dawt-headless=true when starting servers from playmatweb: the use of
+    imageicons in the server made it fail when running on *nix computers without
+    a running x server
+  - implemented token functionality to game and other improvements and fixes
+  - made database authorization functions handle database reconnect
+  - converted windandwater data file into sql script file, and removed the need
+    for the ImportCSV program when filling the database with the card data
+  - implemented playmatweb administration
+  - wrote PlaymatServerQuery and support in the server for query and admin
+    shutdown
+  - design new playmatweb layout
+  - implemented inital game client/server
+  - made playmatweb store with paypal link for zigraphix.com
+  - improved playmatweb (white): applet pages, database authentication support,
+    and rudimentary control and interaction with playmat servers
+  - made sure the objectoutputstream on the server resets periodically
+  - implemented inital image transfer and support in editor client 
+  - made necessary adjustments to db scripts, added imageURL field to CardData,
+    implemented real Database class, and started using it with the editor server
+  - designed and built database
+  - implemented game cl/sv chat functionality
+  - implemented editor cl/sv with 'fake' Database class
+  - wrote playmat(d) starter classes with command line parameter handling
+  - started using apache ant
+  - turned Chat/ChatD into object-serializing client/server
+  - wrote initial playmatweb prototype (purple) 
+  - made initial client gui layouts
+  - project conception and brainstorming

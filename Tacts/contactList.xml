@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><!--  Comment Test  --><contactList>
+
+    <group name="North Pole">
+      <contact address="North Pole" email="np@world.com" name="Santa" phone="123-456-7890"/>
+      <contact address="North Pole" email="jc@islord.biz" name="Lord and Savior Jesus Christ" phone="314-159-3141"/>
+    </group>
+
+    <group name="MyGroup">
+      <contact address="Urban Area" email="mr@man.com" name="Mr. Man" phone="333-434-333"/>
+      <contact address="Urban Area" email="ms@woman.com" name="Ms. Woman" phone="456-8987-1145"/> 	
+    </group>
+
+</contactList>

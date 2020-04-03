@@ -1,0 +1,87 @@
+/*
+        // main
+        g.setColor(Color.black);
+        g.fillRect(0,0,1000,600);
+
+        // sky
+        int sx[] = {0,95,175,265,340,435,510,666,780,890,960,1000};
+        int sy[] = {0,200,100,65,125,25,200,145,205,35,200,0};
+        g.setColor(new Color(81,81,81));
+        g.fillPolygon(new Polygon(sx, sy, sx.length));
+
+        // moon
+        g.setColor(Color.white);
+        g.fillOval(800,25,50,50);
+
+        // road
+        g.setColor(new Color(119,74,9));
+        g.fillRect(0,465,1000,50);
+
+        // building
+
+        g.setColor(Color.darkGray);
+        g.fillRect(50,100,150,400);
+        g.setColor(Color.white);
+        g.fillRect(55,100,140,395);
+        g.setColor(Color.darkGray);
+        g.fillRect(35,75,180,25);
+        g.setColor(Color.gray);
+        g.fillRect(40,80,170,15);
+        g.setColor(Color.darkGray);
+        g.fillRect(45,475,50,30);
+        g.fillRect(155,475,50,30);
+        g.setColor(Color.gray);
+        g.fillRect(50,480,40,20);
+        g.fillRect(160,480,40,20);
+        g.setColor(Color.darkGray);
+        g.fillRect(110,455,30,40);
+        g.setColor(Color.orange);
+        g.fillRect(112,457,26,38);
+        g.setColor(Color.black);
+        g.fillRect(65,120,16,16);
+        g.fillRect(91,120,16,16);
+        g.fillRect(117,120,16,16);
+        g.fillRect(143,120,16,16);
+        g.fillRect(169,120,16,16);
+        g.fillRect(65,146,16,16);
+        g.fillRect(91,146,16,16);
+        g.fillRect(117,146,16,16);
+        g.fillRect(143,146,16,16);
+        g.fillRect(169,146,16,16);
+        g.fillRect(65,171,16,16);
+        g.fillRect(91,171,16,16);
+        g.fillRect(117,171,16,16);
+        g.fillRect(143,171,16,16);
+        g.fillRect(169,171,16,16);
+        g.fillRect(65,197,16,16);
+        g.fillRect(91,197,16,16);
+        g.fillRect(117,197,16,16);
+        g.fillRect(143,197,16,16);
+        g.fillRect(169,197,16,16);
+        g.setColor(new Color(119,74,9));
+        g.fillRect(200,150,30,5);
+
+        // fire
+        g.drawImage(fireImg,75,-10,null);
+
+        // cross
+        g.setColor(Color.red);
+        g.fillRect(115,350,20,50);
+        g.fillRect(100,365,50,20);
+
+        // truck
+        g.setColor(Color.darkGray);
+        g.fillRect(900,445,100,35);
+        g.setColor(new Color(61,122,123));
+        g.fillRect(905,450,90,25);
+        g.setColor(Color.darkGray);
+        g.fillOval(925,467,20,20);
+        g.setColor(Color.lightGray);
+        g.fillOval(928,470,14,14);
+
+        // plants
+        g.setColor(new Color(66,114,54));
+        int gx[] = {0,0,50,150,300,575,600,700,730,760,820,940,1000,1000};
+        int gy[] = {600,500,555,505,666,666,545,555,530,555,510,555,535,600};
+        g.fillPolygon(new Polygon(gx,gy,gx.length));
+*/
