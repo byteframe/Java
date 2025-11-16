@@ -1,0 +1,33 @@
+sdl_pawng (alpha) changelog
+
+  + initial broken sdl_pawng code grab
+  + renderer class with static size and a background image
+  + input class with simple keyboard polling
+  + timer class with simple sdl_ticks interpretation and pause-able state  
+  + makefile with dedicated server directive
+  + client and server classes with simple udp transaction through SDL_net
+  + console class with an accessible storage map for console variables
+  + catch sigint/ctrl-c signal to quit
+  + separate thread in dedicated server build for watching standard input
+  + console methods for synchronized access to standard output and error streams
+  + send command line arguments to console
+  + console method for parsing a space and quote separated list of commands
+- console config file existance checks
+-input-bind-keys-console ( binding is console rw, but shouldnt change map!)????
+-game class
+-render the gamestate and client stuff
+-control frame rates and/or update intervals (learn)
+-udp shiz
+[PONG]-start git+more changelog+namechange
+-debug option in makefile, debug facilites (in Console?)
+- get server/+game in the second thread for non-ded (Game+Server in Global Space!!)
+-------------------------------------------
+gamenamewhatsthebasename>
+  [other game directives]
+  config.cfg
+  download_cache>
+	....$%^&
+  data>
+	default.cfg
+	zip files/other data gets read into resource manager
+--------------------------------
